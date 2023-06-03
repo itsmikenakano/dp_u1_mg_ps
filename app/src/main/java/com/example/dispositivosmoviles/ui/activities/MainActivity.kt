@@ -9,6 +9,7 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import com.example.dispositivosmoviles.databinding.ActivityMainBinding
+import com.example.dispositivosmoviles.logic.validator.LoginValidator
 import com.google.android.material.snackbar.Snackbar
 
 //esta clase hereda de AppCompatActivity
@@ -17,7 +18,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var  binding : ActivityMainBinding
 
     //reescribir la funcion onCreate que hereda de  AppCompactActivity
-    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initClass() {
-        binding.boton1.setOnClickListener {
+        binding.btnLogin.setOnClickListener {
             //binding.txtBuscar.text = "El codigo ejecuta correctamente"
             //Toast.makeText(this,
             //   "Este es un ejemplo",
@@ -48,12 +48,21 @@ class MainActivity : AppCompatActivity() {
                 Snackbar.LENGTH_LONG)
             //f.setBackgroundTint(R.color.black).show()
             f.show()*/
+            val check =LoginValidator().checkLogin(binding.txtUsername.text.toString(),binding.txtPassword.text.toString())
+            if(check){
+                var intent = Intent(this,
+                    PrincipalActivity::class.java)
+                intent.putExtra("var1",binding.txtPassword.text.toString()) //se pasa el nombre de la variable y valor
+                intent.putExtra("var2",11)
+                startActivity(intent)
+                //
+            }else{
+                Snackbar.make(binding.textView1,
+                    "Usuario o contraseña invalidos",
+                    Snackbar.LENGTH_LONG).show()
+            }
 
-            var intent = Intent(this,
-            PrincipalActivity::class.java)
-            intent.putExtra("var1",binding.txtBuscar.text.toString()) //se pasa el nombre de la variable y valor
-            intent.putExtra("var2",11)
-            startActivity(intent)
+
 
         }
     }
