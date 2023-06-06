@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initClass() {
-        binding.btnLogin.setOnClickListener {
+        binding.btnIngresar.setOnClickListener {
             //binding.txtBuscar.text = "El codigo ejecuta correctamente"
             //Toast.makeText(this,
             //   "Este es un ejemplo",
@@ -48,16 +48,16 @@ class MainActivity : AppCompatActivity() {
                 Snackbar.LENGTH_LONG)
             //f.setBackgroundTint(R.color.black).show()
             f.show()*/
-            val check =LoginValidator().checkLogin(binding.txtUsername.text.toString(),binding.txtPassword.text.toString())
+            val check =LoginValidator().checkLogin(binding.textEmail.text.toString(),binding.textPassword.text.toString())
             if(check){
                 var intent = Intent(this,
                     PrincipalActivity::class.java)
-                intent.putExtra("var1",binding.txtPassword.text.toString()) //se pasa el nombre de la variable y valor
+                intent.putExtra("var1",binding.textPassword.text.toString()) //se pasa el nombre de la variable y valor
                 intent.putExtra("var2",11)
                 startActivity(intent)
                 //
             }else{
-                Snackbar.make(binding.textView1,
+                Snackbar.make(binding.textView,
                     "Usuario o contraseña invalidos",
                     Snackbar.LENGTH_LONG).show()
             }
@@ -65,6 +65,7 @@ class MainActivity : AppCompatActivity() {
 
 
         }
+
     }
 
 }
