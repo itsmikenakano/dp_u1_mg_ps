@@ -7,6 +7,7 @@ import android.util.Log
 import com.example.dispositivosmoviles.R
 import com.example.dispositivosmoviles.databinding.ActivityMainBinding
 import com.example.dispositivosmoviles.databinding.PrincipalActivityBinding
+import com.example.dispositivosmoviles.ui.fragments.FirstFragment
 import com.google.android.material.snackbar.Snackbar
 
 class PrincipalActivity : AppCompatActivity() {
@@ -43,14 +44,13 @@ class PrincipalActivity : AppCompatActivity() {
             when (item.itemId) {
                 R.id.inicio -> {
 
-                    var suma:Int = 0
-                    for(i in listOf(1,2,3)){
-                        suma +=i
-                    }
-                    Snackbar.make(binding.txtName,
-                        "La suma es ${suma}",
-                        Snackbar.LENGTH_LONG)
-                        .show()
+                    val frag = FirstFragment() //crea una instancia del fragment que se quiere agregar
+                    val transaction = supportFragmentManager.beginTransaction()
+                    transaction.replace(binding.frmContainer.id, frag) //se coloca el id del contenedor(framelayout) y se pasa la instancia del fragment que se quiere agregar
+                    //con .add se inserta otro fragment(mas contenido encima del anterior) encima
+                    transaction.addToBackStack(null)
+                    transaction.commit() //guarda los cambios
+
                     true
                 }
 

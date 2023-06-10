@@ -15,7 +15,7 @@ import com.google.android.material.snackbar.Snackbar
 //esta clase hereda de AppCompatActivity
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var  binding : ActivityMainBinding
+    private lateinit var binding: ActivityMainBinding
 
     //reescribir la funcion onCreate que hereda de  AppCompactActivity
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,27 +43,34 @@ class MainActivity : AppCompatActivity() {
             //    Toast.LENGTH_SHORT)
             //    .show()
 
-           /* var f=Snackbar.make(binding.boton1,
-                "Este es otro mensaje",
-                Snackbar.LENGTH_LONG)
-            //f.setBackgroundTint(R.color.black).show()
-            f.show()*/
-            val check =LoginValidator().checkLogin(binding.textEmail.text.toString(),binding.textPassword.text.toString())
-            if(check){
-                var intent = Intent(this,
-                    PrincipalActivity::class.java)
-                intent.putExtra("var1",binding.textPassword.text.toString()) //se pasa el nombre de la variable y valor
-                intent.putExtra("var2",11)
+            /* var f=Snackbar.make(binding.boton1,
+                 "Este es otro mensaje",
+                 Snackbar.LENGTH_LONG)
+             //f.setBackgroundTint(R.color.black).show()
+             f.show()*/
+            val check = LoginValidator().checkLogin(
+                binding.textEmail.text.toString(),
+                binding.textPassword.text.toString()
+            )
+            if (check) {
+                var intent = Intent(
+                    this,
+                    PrincipalActivity::class.java
+                )
+                intent.putExtra(
+                    "var1",
+                    binding.textPassword.text.toString()
+                ) //se pasa el nombre de la variable y valor
+                intent.putExtra("var2", 11)
                 startActivity(intent)
                 //
-            }else{
-                Snackbar.make(binding.textView,
+            } else {
+                Snackbar.make(
+                    binding.textView,
                     "Usuario o contraseña invalidos",
-                    Snackbar.LENGTH_LONG).show()
+                    Snackbar.LENGTH_LONG
+                ).show()
             }
-
-
-
         }
 
     }
