@@ -34,8 +34,13 @@ class FirstFragment : Fragment() {
             "Pepe", "Mariano", "Rosa"
         )
 
+<<<<<<< HEAD
         val adapter = ArrayAdapter<String>(requireActivity(), R.layout.simple_layout, names)
 
+=======
+                R.layout.simple_layout, names)
+        //android.R.layout.simple_spinner_item
+>>>>>>> 062fc2bf1b8529f61472643acb493db2f7fab0f8
         binding.spinner.adapter = adapter
         val rvAdapter = MarvelAdapter(ListItems().returnMarvelChars())
 

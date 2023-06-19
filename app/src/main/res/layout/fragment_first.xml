@@ -47,6 +47,7 @@
         android:layout_marginStart="25dp"
         android:layout_marginTop="14dp" />
 
+<<<<<<< HEAD
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="512dp"
@@ -63,6 +64,16 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/spinner"
+=======
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvMarvelChars"
+        android:layout_width="389dp"
+        android:layout_height="522dp"
+        android:layout_margin="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinner" />
+>>>>>>> 062fc2bf1b8529f61472643acb493db2f7fab0f8
 
 
             />
