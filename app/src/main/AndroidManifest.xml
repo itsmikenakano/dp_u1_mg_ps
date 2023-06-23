@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+<<<<<<< HEAD
 
     <uses-permission android:name="android.permission.INTERNET" />
 
+=======
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+>>>>>>> 200e235258a59121771fde1e09385b06e3abbf41
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"

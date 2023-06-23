@@ -13,8 +13,11 @@ import com.example.dispositivosmoviles.R
 import com.example.dispositivosmoviles.data.entities.marvel.MarvelChars
 import com.example.dispositivosmoviles.databinding.FragmentFirstBinding
 import com.example.dispositivosmoviles.logic.list.ListItems
+<<<<<<< HEAD
 import com.example.dispositivosmoviles.ui.activities.DetailsMarvelItem
 import com.example.dispositivosmoviles.ui.activities.MainActivity
+=======
+>>>>>>> 200e235258a59121771fde1e09385b06e3abbf41
 import com.example.dispositivosmoviles.ui.adapters.MarvelAdapter
 
 class FirstFragment : Fragment() {
@@ -38,6 +41,7 @@ class FirstFragment : Fragment() {
             "Pepe", "Mariano", "Rosa"
         )
 
+<<<<<<< HEAD
         val adapter = ArrayAdapter<String>(requireActivity(), R.layout.simple_layout, names)
 
         binding.spinner.adapter = adapter
@@ -61,6 +65,17 @@ class FirstFragment : Fragment() {
         ) { sendMarvelItem(it) }
         //las funciones que se pasan como argumentos se mandan fuera de los parentesis
         //y entre llaves
+=======
+<<<<<<< HEAD
+        val adapter = ArrayAdapter<String>(requireActivity(), R.layout.simple_layout, names)
+
+=======
+                R.layout.simple_layout, names)
+        //android.R.layout.simple_spinner_item
+>>>>>>> 062fc2bf1b8529f61472643acb493db2f7fab0f8
+        binding.spinner.adapter = adapter
+        val rvAdapter = MarvelAdapter(ListItems().returnMarvelChars())
+>>>>>>> 200e235258a59121771fde1e09385b06e3abbf41
 
         val rvMArvel = binding.rvMarvelChars
         rvMArvel.adapter = rvAdapter
@@ -69,6 +84,11 @@ class FirstFragment : Fragment() {
             requireActivity(), LinearLayoutManager.VERTICAL,
             false
         )
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 200e235258a59121771fde1e09385b06e3abbf41
     }
 
 
