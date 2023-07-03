@@ -2,15 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-<<<<<<< HEAD
     android:layout_height="wrap_content"
-=======
-<<<<<<< HEAD
-    android:layout_height="wrap_content"
-=======
-    android:layout_height="match_parent"
->>>>>>> 062fc2bf1b8529f61472643acb493db2f7fab0f8
->>>>>>> 200e235258a59121771fde1e09385b06e3abbf41
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.cardview.widget.CardView
@@ -26,17 +18,8 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-<<<<<<< HEAD
             android:layout_height="match_parent"
             android:background="@drawable/fondo">
-=======
-<<<<<<< HEAD
-            android:layout_height="match_parent"
-            android:background="@drawable/fondo">
-=======
-            android:layout_height="match_parent">
->>>>>>> 062fc2bf1b8529f61472643acb493db2f7fab0f8
->>>>>>> 200e235258a59121771fde1e09385b06e3abbf41
 
             <ImageView
                 android:id="@+id/imgMarvel"
@@ -53,7 +36,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="16dp"
-                android:textSize="24sp"
+                android:textSize="16sp"
                 app:layout_constraintStart_toEndOf="@+id/imgMarvel"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="Marvel" />
