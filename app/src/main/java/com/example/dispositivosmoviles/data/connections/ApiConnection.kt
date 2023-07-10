@@ -7,8 +7,8 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object ApiConnection {
 
-     enum class typeApi {
-        Jikan, Marvel, Pets
+    enum class typeApi {
+        Jikan, Marvel
     }
 
     private val API_JIKAN = "https://api.jikan.moe/v4/"
@@ -24,17 +24,16 @@ object ApiConnection {
     }
 
     suspend fun <T, E : Enum<E>> getService(api: E, service: Class<T>): T {
-       var BASE = ""
+        var BASE = ""
         when (api.name) {
-           typeApi.Jikan.name -> {
+            typeApi.Jikan.name -> {
 
-                BASE=API_JIKAN
+                BASE = API_JIKAN
 
             }
 
-           typeApi.Marvel.name -> {
-                BASE=API_MARVEL
-
+            typeApi.Marvel.name -> {
+                BASE = API_MARVEL
 
 
             }

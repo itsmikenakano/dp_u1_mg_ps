@@ -1,6 +1,6 @@
 package com.example.dispositivosmoviles.logic.list
 
-import com.example.dispositivosmoviles.data.entities.marvel.MarvelChars
+import com.example.dispositivosmoviles.logic.data.MarvelChars
 
 class ListItems {
 

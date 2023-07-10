@@ -5,7 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.dispositivosmoviles.R
-import com.example.dispositivosmoviles.data.entities.marvel.MarvelChars
+import com.example.dispositivosmoviles.logic.data.MarvelChars
 import com.example.dispositivosmoviles.databinding.MarvelCharactersBinding
 import com.squareup.picasso.Picasso
 
@@ -23,7 +23,6 @@ class MarvelAdapter(
         //conectamos el objeto con el layout
         fun render(item: MarvelChars, fnClick: (MarvelChars) -> Unit) {
             //println("Recibiendo a ${item.name}")
-            binding.imgMarvel.bringToFront()
             binding.txtName.text = item.name
             binding.txtComic.text = item.comic
             Picasso.get().load(item.image).into(binding.imgMarvel)
@@ -60,10 +59,13 @@ class MarvelAdapter(
 
     override fun getItemCount(): Int = items.size
 
-    fun updateListItems(newItem: List<MarvelChars>){
-        items=items.plus(newItem)
+    fun updateListItems(newItems: List<MarvelChars>){
+        this.items=this.items.plus(newItems)
         notifyDataSetChanged()
     }
-
+    fun replaceListItems(newItems: List<MarvelChars>){
+        this.items=newItems
+        notifyDataSetChanged()
+    }
 
 }

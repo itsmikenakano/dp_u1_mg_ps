@@ -2,7 +2,7 @@ package com.example.dispositivosmoviles.ui.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.dispositivosmoviles.data.entities.marvel.MarvelChars
+import com.example.dispositivosmoviles.logic.data.MarvelChars
 import com.example.dispositivosmoviles.databinding.ActivityDetailsMarvelItemBinding
 import com.squareup.picasso.Picasso
 
@@ -29,9 +29,11 @@ class DetailsMarvelItem : AppCompatActivity() {
 
         val item= intent.getParcelableExtra<MarvelChars>("name",)
 
-        if(item != null){
-            binding.txtName.text=item.name
+        if(item != null) {
+            binding.txtName.text = item.name
             Picasso.get().load(item.image).into(binding.imgMarvel)
+
+
         }
     }
 }
