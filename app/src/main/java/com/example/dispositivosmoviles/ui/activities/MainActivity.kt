@@ -10,6 +10,7 @@ import android.widget.TextView
 import android.widget.Toast
 import com.example.dispositivosmoviles.databinding.ActivityMainBinding
 import com.example.dispositivosmoviles.logic.validator.LoginValidator
+import com.example.dispositivosmoviles.ui.utilities.DispositivosMoviles
 import com.google.android.material.snackbar.Snackbar
 
 //esta clase hereda de AppCompatActivity
@@ -29,6 +30,9 @@ class MainActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
         initClass()
+
+        //val db = DispositivosMoviles.getDbInstance()
+
     }
 
     override fun onDestroy() {

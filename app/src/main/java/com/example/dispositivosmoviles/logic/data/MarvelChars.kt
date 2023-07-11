@@ -1,6 +1,7 @@
 package com.example.dispositivosmoviles.logic.data
 
 import android.os.Parcelable
+import com.example.dispositivosmoviles.data.entities.marvel.characters.database.MarvelCharsBD
 import kotlinx.parcelize.Parcelize
 
 //Este plugin me da implementando los metodos para la clase
@@ -12,3 +13,8 @@ data class MarvelChars(
     val image: String
 ) : Parcelable
 
+fun MarvelChars.getMarvelCharsDB(): MarvelCharsBD {
+    return MarvelCharsBD(
+        id, name, comic, image
+    )
+}

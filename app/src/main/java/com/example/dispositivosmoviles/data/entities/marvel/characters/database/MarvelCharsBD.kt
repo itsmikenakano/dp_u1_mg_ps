@@ -14,3 +14,5 @@ data class MarvelCharsBD(
     val comic: String,
     val image: String
 ) : Parcelable
+
+
