@@ -28,20 +28,7 @@ class PrincipalActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
 
-        //opcion 1
-//        intent.extras!!.let {
-//            var name = it.getString("var1")
-//        }
 
-        //opcion 2
-        var name: String = ""
-        /*intent.extras.let {
-            name = it?.getString("var1")!!
-        }*/
-        Log.d("UCE", "Hola ${name}")
-        binding.txtName.text = "Bienvenido " + name.toString()
-        Log.d("UCE", "Entrando a Start")
-        initClass()
 
         binding.bottomNavigation.setOnItemSelectedListener { item ->
             when (item.itemId) {
@@ -95,10 +82,10 @@ class PrincipalActivity : AppCompatActivity() {
     }
 
     private fun initClass() {
-        binding.botonRetorno.setOnClickListener {
-            //el primer parametro es un filtro para que muestre solo eso en la consola al filtar por el termino y el segundo el mensaje
-            var intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-        }
+//        binding.botonRetorno.setOnClickListener {
+//            //el primer parametro es un filtro para que muestre solo eso en la consola al filtar por el termino y el segundo el mensaje
+//            var intent = Intent(this, MainActivity::class.java)
+//            startActivity(intent)
+//        }
     }
 }

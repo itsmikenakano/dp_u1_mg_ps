@@ -1,6 +1,7 @@
 package com.example.dispositivosmoviles.logic.marvelLogic
 
 import android.util.Log
+import androidx.lifecycle.lifecycleScope
 import com.example.dispositivosmoviles.data.connections.ApiConnection
 import com.example.dispositivosmoviles.data.endpoints.MarvelEndpoint
 import com.example.dispositivosmoviles.data.entities.marvel.characters.database.MarvelCharsBD
@@ -8,6 +9,11 @@ import com.example.dispositivosmoviles.data.entities.marvel.characters.getMarvel
 import com.example.dispositivosmoviles.logic.data.MarvelChars
 import com.example.dispositivosmoviles.logic.data.getMarvelCharsDB
 import com.example.dispositivosmoviles.ui.utilities.DispositivosMoviles
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import java.lang.Exception
+import java.lang.RuntimeException
 
 class MarvelLogic {
 
@@ -63,16 +69,42 @@ class MarvelLogic {
         return items
     }
 
-    suspend fun insertMarvelCharstoDB(items: List<MarvelChars>) {
+    suspend fun getInitChars(limit: Int, offset: Int): MutableList<MarvelChars> {
+
+        var items = mutableListOf<MarvelChars>()
+        try {
+
+            items = MarvelLogic().getAllMarvelChardDB().toMutableList()
+
+
+            if (items.isEmpty()) {
+                items = MarvelLogic().getAllMarvelChars(offset, limit)
+                MarvelLogic().insertMarvelCharstoDB(items)
+            }
+
+        } catch (ex: Exception) {
+            throw RuntimeException(ex.message)
+
+        }finally {
+            return items
+        }
+
+
+
+
+
+    }
+
+    suspend fun insertMarvelCharstoDB(items: List<MarvelChars>){
 
         var itemsDB = arrayListOf<MarvelCharsBD>()
 
+
         items.forEach {
-            itemsDB.add(it.getMarvelCharsDB())
+                itemsDB.add(it.getMarvelCharsDB())
         }
 
         DispositivosMoviles.getDbInstance().marvelDao().insertMarvelChar(itemsDB)
-
 
     }
 }
